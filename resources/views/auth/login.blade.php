@@ -5,7 +5,7 @@
 <div class="container">
     <br><br>
     <div class="row">
-        <div class="col-md-6 col-md-offset-3">
+        <div class="col-md-6 col-my-offset-25">
             <div class="bg6 panel panel-default">
                 <div class="panel-heading"><h3>Вход</h3></div>
 

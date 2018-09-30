@@ -15,8 +15,39 @@ window.Vue = require('vue');
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-Vue.component('example-component', require('./components/ExampleComponent.vue'));
+Vue.component('excel', require('./components/Excel.vue'));
 
-const app = new Vue({
-    el: '#app'
+const model = new Vue({
+    el: '#excelUploadVueApp',
+    data: {
+        error: null,
+        loading: false
+    }
+});
+
+$('#fileupload').fileupload({
+    dataType: 'json',
+    url: window.compareUploadUrl,
+    type: 'POST',
+    done: function(e, data) {
+        if (data.result.error) {
+            model.error = true;
+            return true;
+        }
+        if (data.result) {
+        	
+        	// reload page 
+
+        }
+    },
+    start: function(e) {
+        model.loading = true;
+        model.error = null;
+    },
+    stop: function(e) {
+        model.loading = false;
+    },
+    error: function(e) {
+        alert('На сервере произошла ошибка. Попробуйте повторить запрос позже.');
+    }
 });
