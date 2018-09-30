@@ -43655,7 +43655,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
 
 
 
@@ -43759,7 +43758,7 @@ var STATUS_INITIAL = 0,
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_axios___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_axios__);
 
 
-var BASE_URL = 'http://belook.local';
+var BASE_URL = 'http://belook.kz';
 
 function upload(formData) {
     var url = BASE_URL + '/uploadGoods';
@@ -43846,9 +43845,7 @@ var render = function() {
               },
               [_vm._v("Попробовать снова")]
             )
-          ]),
-          _vm._v(" "),
-          _c("pre", [_vm._v(_vm._s(_vm.error))])
+          ])
         ])
       : _vm._e()
   ])
