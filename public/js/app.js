@@ -43758,7 +43758,7 @@ var STATUS_INITIAL = 0,
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_axios___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_axios__);
 
 
-var BASE_URL = 'http://belook.kz';
+var BASE_URL = 'https://belook.kz';
 
 function upload(formData) {
     var url = BASE_URL + '/uploadGoods';

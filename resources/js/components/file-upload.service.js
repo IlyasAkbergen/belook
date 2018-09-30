@@ -1,6 +1,6 @@
 import * as axios from 'axios';
 
-const BASE_URL = 'http://belook.kz';
+const BASE_URL = 'https://belook.kz';
 
 function upload(formData) {
     const url = `${BASE_URL}/uploadGoods`;
