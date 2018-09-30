@@ -20,7 +20,6 @@
         <p>
           <a class="btn btn-default" href="javascript:void(0)" @click="reset()">Попробовать снова</a>
         </p>
-        <pre>{{error}}</pre>
       </div>
   </div>
 </template>
