@@ -11,6 +11,8 @@ use App\User;
 use App\Cart;
 use Auth;
 use File;
+use Excel;
+
 class GoodController extends Controller
 {
     public function store(Request $request){
@@ -158,8 +160,71 @@ class GoodController extends Controller
 
         return view('shop', compact('goods', 'searchgood', 'currentCat'));
     }
+    
+    public function uploadFromExcel(Request $request){ // PASS HERE USER ID FROM BLADE 
+        if(User::find($request->user_id)->role == 'seller' ){
 
-    public function uploadFromExcel(Request $request){
-        
+            try {
+                $dataFromFile = Excel::load($request->file('excelfile'))->get();
+                // $sheet = $objPHPExcel->getSheet(0);
+                
+                // foreach ($sheet->getRowIterator() as $i => $row) {
+
+
+                //     $row = $sheet->rangeToArray("B{$i}:G{$i}", null, true, false)[0];
+                //     $dataFromFile[$row[0]] = $row;
+                // }
+
+                // Excel::load($request->file('excelfile'))->getRealPath(), function ($reader) {
+                //     foreach ($reader->toArray() as $key => $row) {
+                          
+                //         // for headers
+                //         // if ($key <= 1) {
+                //         //     continue;
+                //         // }
+                        
+                //         $good = new Good;
+                //         $good->title = $row[2];
+                //         $good->description = $row[3];
+                //         $good->seller_id = $request->user_id;
+                //         $good->price = $row[5];
+                //         $good->category = 1; // no category in excel file
+                        
+                //         // add serial numbers to table
+                //         $good->save();
+
+                //         // $data['title'] = $row['title'];
+                //         // $data['description'] = $row['description'];
+                //     }
+                // });
+
+                foreach ($dataFromFile as $key => $row) {
+
+                    if($row['sn'] == null || $row['title'] == null || $row['description'] == null || $row['price'] == null){
+                        continue;
+                    }
+
+                    $good = new Good;
+                    $good->title = $row['title'];
+                    $good->description = $row['description'];
+                    $good->seller_id = $request->user_id;
+                    $good->price = $row['price'];
+                    $good->category = 1; // no category in excel file
+                    $good->sn = $row['sn'];
+                    
+                    if(!$good->snExists()){
+                        $good->save();    
+                    }
+
+                }
+                
+                return redirect(route('myProfile'));   
+            
+            } catch (Exception $e) {
+                return $e;
+            }
+        }else{
+            return redirect('/');
+        }
     }
 }

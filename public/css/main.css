@@ -123,15 +123,6 @@ h1,h2,h3,h4,h5,h6 {
 	margin: 0px;
 }
 
-.excel_btn {
-  padding: 12px;
-}
-
-.excel_btn:hover {
-  background-color: #398439;
-  color: white;
-  border: 1px solid lightgrey;
-}
 
 p {
 	font-family: Montserrat-Regular;
@@ -145,7 +136,10 @@ ul, li {
 	margin: 0px;
 	list-style-type: none;
 }
-
+.col-my-offset-25{
+  width: 50%;
+  margin-left: 25%;
+}
 
 /* ------------------------------------ */
 input {

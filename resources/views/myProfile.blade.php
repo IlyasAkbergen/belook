@@ -145,6 +145,27 @@
 		-webkit-background-size: cover;
 		background-size: cover;
 	}
+
+
+	.btn-excel {
+	  border: 1px solid lightgrey; 
+	  padding: 0px !important; 
+	  position: relative;
+	}
+
+	.btn-excel:hover {
+	  background-color: #398439;
+	  color: white;
+	  border: 1px solid darkgreen;
+	  cursor: pointer;
+	}
+
+	div.excel-inner-btn {
+	  margin-top: -42px;
+	  padding: 0px;
+	  z-index: 0 !important;
+	  margin-bottom: 3px;
+	}
 </style>
 @endsection
 
@@ -303,17 +324,15 @@
 				
 				<br><br>
 				
-				
-				<div class="btn btn-md btn-excel" style="border: 1px solid lightgrey; padding: 12px !important;  position: relative;"><?php echo Form::open(array('url' => 'uploadGoods','files'=>'true')); ?>
-					<input type="file" name="file" style="z-index: 1; opacity: 0">
-					<div style="position: absolute; margin-top: -30px;z-index: 0 !important;">
-						<img style="width: 35px;" src="{{asset('images/icons/excel_icon.png')}}" alt="">&nbsp &nbspВыгрузить товары из excel	
-					</div>	
-					
+				 <!-- excel upload -->
+				<div id="excelUploadVueApp">
+					<excel :userid="'{{$user->id}}'" :exceliconurl="'{{asset('images/icons/excel_icon.png')}}'" :loadingurl="'{{asset('images/loading.gif')}}'">
+						
+					</excel>
 				</div>
-				
-				<?php echo Form::close(); ?>
-	            @if(count($goods) > 0)
+				<script type="text/javascript" src="{{asset('js/app.js')}}"></script>
+
+				@if(count($goods) > 0)
 				<div class="col-md-12">
 					<ul class="list-inline">
 						<li class="filter active activeall" data-filter=".all">Все</li>
@@ -442,6 +461,9 @@
 <script src="{{asset('developerTemplate/js/custom.js')}}"></script>
 <script src="{{ asset('bootstrap-editable/bootstrap-editable.js') }}"></script>
 <script src="{{ asset('bootstrap-editable/bootstrap-editable.min.js') }}"></script>
+<!-- vuejs cdn -->
+<script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
+<!-- . -->
 <script>
 	$( document ).ready(function() {
 	  $('.trigger').on('click', function() {

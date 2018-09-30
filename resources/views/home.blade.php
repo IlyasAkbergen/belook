@@ -97,93 +97,6 @@
         }
       })
     </script>
-    <div class="sec-title p-b-25 m-t-30">
-        <h3 class="m-text15 t-center" style="font-size: 40px !important;">
-            Распродажа
-        </h3>
-    </div>
-    <div class="row" style="margin-right: -35px">
-        <div class="col-sm-12 col-sm-offset owl-carousel">
-            @if(count($sales) > 0)
-            @foreach($sales as $sale)
-                <!-- Block2 -->
-                <div class="block2">
-                    <div class="block2-img square pos-relative wrap-pic-w of-hidden">
-                        <span class = "mylabel">-{{ $sale->sale }}%</span>
-                        <?php $avatars = App\GoodPhoto::where('good_id', $sale->id)->get();
-                        if(count($avatars)>0){
-                            $avatar = $avatars->first()->filename;
-                        }else{
-                          $avatar='default';  
-                        } ?>
-                        @if($avatar == 'default')
-                        <img class="square_img" src="images/item-02.jpg" alt="IMG-PRODUCT">
-                        @else
-                        <img class="square_img" src="{{asset('resources/images') . '/' . $sale->id . '/' . $avatar}}" alt="фото товара">
-                        @endif
-                        <div class="block2-overlay trans-0-4">
-                            @if(!Auth::guest() && Auth::user()->token == null)
-                            <div class="block2-btn-addcart block2-btn-addcartBtn w-size1 trans-0-4 text-center m-b-20">
-                                <!-- Button -->
-                                <a onclick="addToCart({{$sale->id}})" href="#" class="btn btn-lg bg4 bo-rad-23 hov1 s-text1 trans-0-4">
-                                    в корзину
-                                </a>
-                                <br><br>
-                            </div>
-                                @endif
-                            <div class="block2-btn-addcart w-size1 trans-0-4 text-center">
-                                <a href="{{url('good/' . $sale->id)}}" class="btn btn-lg bg4 bo-rad-23 hov1 s-text1 trans-0-4">
-                                   купить
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="block2-txt p-t-20 text-center">
-                        <a href="{{url('good/' . $sale->id)}}" class="block2-name dis-block s-text3 p-b-5">
-                            {{$sale->title}}
-                        </a>
-                        
-                        <span class="block2-price m-text7 p-r-5">
-                            {{$sale->oldprice}} Тг.
-                        </span>
-
-                        <span class="block2-newprice m-text8 p-r-5">
-                            {{$sale->price}} Тг.
-                        </span>
-                    </div>
-                </div>
-            @endforeach
-            @else
-                <div class="col-xs-12 text-center">
-                    <p class="m-text17">Нет товаров со скидкой.</p>
-                </div>
-            @endif
-        </div>
-    </div>
-    <script>
-      var owl = $('.owl-carousel');
-      owl.owlCarousel({
-        margin: 10,
-        loop: true,
-        autoplay:true,
-        autoplayTimeout: 2000,
-        autoplayHoverPause:true,
-        autoplaySpeed: 1500,
-        responsive: {
-          0: {
-            items: 2.5
-          },
-          600: {
-            items: 3.5
-          },
-          1000: {
-            items: 6.5
-          }
-        }
-      })
-    </script>
-        <!-- end sale -->
 
     <!-- news carousel -->
 
@@ -271,6 +184,97 @@
     </script>
     
     <!-- end news carousel -->
+
+    <!-- sales carousel -->
+
+        <div class="sec-title p-b-25 m-t-30">
+        <h3 class="m-text15 t-center" style="font-size: 40px !important;">
+            Распродажа
+        </h3>
+    </div>
+    <div class="row" style="margin-right: -35px">
+        <div class="col-sm-12 col-sm-offset owl-carousel">
+            @if(count($sales) > 0)
+            @foreach($sales as $sale)
+                <!-- Block2 -->
+                <div class="block2">
+                    <div class="block2-img square pos-relative wrap-pic-w of-hidden">
+                        <span class = "mylabel">-{{ $sale->sale }}%</span>
+                        <?php $avatars = App\GoodPhoto::where('good_id', $sale->id)->get();
+                        if(count($avatars)>0){
+                            $avatar = $avatars->first()->filename;
+                        }else{
+                          $avatar='default';  
+                        } ?>
+                        @if($avatar == 'default')
+                        <img class="square_img" src="images/item-02.jpg" alt="IMG-PRODUCT">
+                        @else
+                        <img class="square_img" src="{{asset('resources/images') . '/' . $sale->id . '/' . $avatar}}" alt="фото товара">
+                        @endif
+                        <div class="block2-overlay trans-0-4">
+                            @if(!Auth::guest() && Auth::user()->token == null)
+                            <div class="block2-btn-addcart block2-btn-addcartBtn w-size1 trans-0-4 text-center m-b-20">
+                                <!-- Button -->
+                                <a onclick="addToCart({{$sale->id}})" href="#" class="btn btn-lg bg4 bo-rad-23 hov1 s-text1 trans-0-4">
+                                    в корзину
+                                </a>
+                                <br><br>
+                            </div>
+                                @endif
+                            <div class="block2-btn-addcart w-size1 trans-0-4 text-center">
+                                <a href="{{url('good/' . $sale->id)}}" class="btn btn-lg bg4 bo-rad-23 hov1 s-text1 trans-0-4">
+                                   купить
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="block2-txt p-t-20 text-center">
+                        <a href="{{url('good/' . $sale->id)}}" class="block2-name dis-block s-text3 p-b-5">
+                            {{$sale->title}}
+                        </a>
+                        
+                        <span class="block2-price m-text7 p-r-5">
+                            {{$sale->oldprice}} Тг.
+                        </span>
+
+                        <span class="block2-newprice m-text8 p-r-5">
+                            {{$sale->price}} Тг.
+                        </span>
+                    </div>
+                </div>
+            @endforeach
+            @else
+                <div class="col-xs-12 text-center">
+                    <p class="m-text17">Нет товаров со скидкой.</p>
+                </div>
+            @endif
+        </div>
+    </div>
+    <script>
+      var owl = $('.owl-carousel');
+      owl.owlCarousel({
+        margin: 10,
+        loop: true,
+        autoplay:true,
+        autoplayTimeout: 2000,
+        autoplayHoverPause:true,
+        autoplaySpeed: 1500,
+        responsive: {
+          0: {
+            items: 2.5
+          },
+          600: {
+            items: 3.5
+          },
+          1000: {
+            items: 6.5
+          }
+        }
+      })
+    </script>
+    
+    <!-- end sales carousel -->
 
     <!-- best goods carousel -->
     

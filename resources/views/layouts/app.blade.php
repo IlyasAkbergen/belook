@@ -37,6 +37,7 @@
 <!--=============================================================================================== done-->
     <link rel="stylesheet" type="text/css" href="{{ asset('css/util.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('css/main.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/app-laravel.css') }}">
 
 <!--===============================================================================================-->
     <style>
@@ -87,6 +88,10 @@
             position: absolute;
             top: 12px;
             left: 12px;
+        }
+
+        .search-product{
+            margin-left: 25%;
         }
     </style>
  @yield('head')
@@ -364,7 +369,7 @@
             </div>
 
             <div class="row">
-            <div class="col-md-6 col-md-offset-3 m-b-10 search-product pos-relative bo4 of-hidden" style="padding: 0px !important;">
+            <div class="col-md-6 m-b-10 search-product pos-relative bo4 of-hidden" style="padding: 0px !important;">
                 <form action="{{route('searchgood')}}" method="POST" stylr="border: 1px solid #e2dede;">
                     {{csrf_field()}}
                 <input class="s-text7 size4 p-l-23 p-r-50 form-control" type="text" name="searchgood" placeholder="@if(empty($searchgood))Поиск товаров...@else{{$searchgood}}@endif">
