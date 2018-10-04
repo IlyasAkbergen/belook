@@ -16,7 +16,7 @@ Route::get('/home', function () {
     return redirect('/');
 });
 
-Route::get('good/{good_id}', 'GoodController@show');
+Route::get('good/{good_id}', 'GoodController@show')->name('good');
 
 Route::post('addgood', 'GoodController@store')->name('addgood');
 
@@ -70,6 +70,8 @@ Route::post('uploadAva', 'ProfileController@uploadAva')->name('uploadAva');
 Route::get('activateAccount', function(){
 	return view('activateAccount');
 })->name('activateAccount');
+
+Route::get('cart', "CartController@show")->name('cart');
 
 Route::get('addToCart/{good_id}', "CartController@add")->name('addToCart');
 

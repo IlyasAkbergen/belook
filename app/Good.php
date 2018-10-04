@@ -21,4 +21,8 @@ class Good extends Model
 
         return $result;
     }
+
+    public function photos(){
+        return $this->hasMany('App\GoodPhoto', 'good_id');
+    }
 }

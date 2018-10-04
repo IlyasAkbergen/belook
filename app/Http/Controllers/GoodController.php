@@ -76,7 +76,8 @@ class GoodController extends Controller
 
     public function show($good_id){
         $good = Good::find($good_id);
-        $photos = GoodPhoto::where('good_id', $good_id)->get();
+        $photos = $good->photos;
+//        $photos = GoodPhoto::where('good_id', $good_id)->get();
         $reviews = Review::where('good_id', $good_id)->get();
         $categories = array();
         $index = 0;
