@@ -126,7 +126,7 @@
                         @if(!Auth::guest() && Auth::user()->token == null)
                         <div class="block2-btn-addcart block2-btn-addcartBtn w-size1 trans-0-4 text-center m-b-20">
                             <!-- Button -->
-                            <a onclick="addToCart({{$new->id}})" href="#" class="btn btn-lg bg4 bo-rad-23 hov1 s-text1 trans-0-4">
+                            <a onclick="addToCart({{'"' . asset('/addToCart' . '/' . $new->id) . '"'}})" href="#" class="btn btn-lg bg4 bo-rad-23 hov1 s-text1 trans-0-4">
                                 в корзину
                             </a>
                             <br><br>
@@ -215,7 +215,7 @@
                             @if(!Auth::guest() && Auth::user()->token == null)
                             <div class="block2-btn-addcart block2-btn-addcartBtn w-size1 trans-0-4 text-center m-b-20">
                                 <!-- Button -->
-                                <a onclick="addToCart({{$sale->id}})" href="#" class="btn btn-lg bg4 bo-rad-23 hov1 s-text1 trans-0-4">
+                                <a onclick="addToCart({{'"' . asset('/addToCart' . '/' . $sale->id) . '"'}})" href="#" class="btn btn-lg bg4 bo-rad-23 hov1 s-text1 trans-0-4">
                                     в корзину
                                 </a>
                                 <br><br>
@@ -306,7 +306,7 @@
                     @if(!Auth::guest() && Auth::user()->token == null)
                     <div class="block2-btn-addcart block2-btn-addcartBtn w-size1 trans-0-4 text-center m-b-20">
                         <!-- Button -->
-                        <a onclick="addToCart({{$sale->id}})" href="#" class="btn btn-lg bg4 bo-rad-23 hov1 s-text1 trans-0-4">
+                        <a onclick="addToCart({{'"' . asset('/addToCart' . '/' . $bGood->id) . '"'}})" href="#" class="btn btn-lg bg4 bo-rad-23 hov1 s-text1 trans-0-4">
                             в корзину
                         </a>
                         <br><br>
