@@ -627,27 +627,25 @@
     <script src="{{ asset('js/main.js') }}"></script>
 
     <script>
-        function addToCart(good_id){
+        function addToCart(url){
             $.ajax({
                 type: "GET",
-                // local
-                url: "http://belook.local/addToCart/" + good_id,
-                // prod
-                // url: "https://belook.kz/addToCart/" + good_id,
+                url: url,
             });
         }
     </script>
     <script>
-        function deleteCart(cart_id){
-            alert("delete cart");
-            $.ajax({
-                type: "GET",
+        // function deleteCart(url, cart_id){
+        //     alert("delete cart");
+        //     $.ajax({
+        //         type: "GET",
                 //local
-                url: "http://belook.local/deleteCart/" + cart_id,
+                // url: "http://belook.local/deleteCart/" + cart_id,
                 // prod
                 // url: "https://belook.kz/deleteCart/" + cart_id,
-            });   
-        }
+        //         url: url + cart_id,
+        //     });
+        // }
     </script>    
 </body>
 </html>
