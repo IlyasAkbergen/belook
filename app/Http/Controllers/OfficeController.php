@@ -32,22 +32,11 @@ class OfficeController extends Controller
 
     public function mysettings(){
         if(Auth::user()->role == 'seller' || Auth::user()->role == 'candidate'){
-            return view('mysettings');
+            return view('office');
         }else if(Auth::user()->token != null){
             return view('activateAccount');
         }else{
             return redirect('/');
-        }
-    }
-
-    public function myreviews(){
-    
-        if(Auth::user()->role == 'seller'){
-            return view('myreviews');
-        }else if(Auth::user()->token != null){
-            return view('activateAccount');
-        }else{
-            return redirect()->route('office');
         }
     }
 

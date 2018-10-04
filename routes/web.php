@@ -6,11 +6,9 @@ Auth::routes();
 
 Route::get('/verify/{token}', 'VerifyController@verify')->name('verify');
 
-Route::get('office', 'OfficeController@mysettings')->name('office'); // во многих ссылках уже office написано было прост ... 	
+//Route::get('office', 'OfficeController@mysettings')->name('office'); // во многих ссылках уже office написано было прост ...
 
-Route::get('mysettings', 'OfficeController@mysettings')->name('mysettings');
-
-Route::get('myreviews', 'OfficeController@myreviews')->name('myreviews');
+Route::get('mysettings', 'OfficeController@mysettings')->name('office');
 
 Route::get('mygoods', 'OfficeController@mygoods')->name('mygoods');
 

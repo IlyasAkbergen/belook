@@ -368,7 +368,7 @@
                 </div>
             </div>
 
-            <div class="row">
+            <div class="row search-row">
             <div class="col-md-6 m-b-10 search-product pos-relative bo4 of-hidden" style="padding: 0px !important;">
                 <form action="{{route('searchgood')}}" method="POST" stylr="border: 1px solid #e2dede;">
                     {{csrf_field()}}
