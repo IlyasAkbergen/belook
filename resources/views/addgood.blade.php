@@ -22,13 +22,21 @@
             margin-top: 100px;
         }
     }
+
+    .local-container {
+        margin-top: -50px;
+    }
+
+    .search-row {
+        visibility: hidden;
+    }
 </style>
 @endsection
 
 @section('content')
-<div class="container">
+<div class="container local-container">
     <h2 class="m-text-17 text-center m-b-20"><b>Добавить новый товар</b></h2>
-    <form action="{{route('addgood')}}" class="myModal form p-t-15 p-b-15 m-b-20 bg-light col-lg-6 col-lg-offset-3" method="POST"> <!-- enctype="multipart/form-data"> -->
+    <form action="{{route('addgood')}}" class="myModal form p-t-15 p-b-15 m-b-20 bg6 col-lg-6 col-my-offset-25" method="POST"> <!-- enctype="multipart/form-data"> -->
         {{ csrf_field() }}
         <div class="container">
             <div class="form-group">
