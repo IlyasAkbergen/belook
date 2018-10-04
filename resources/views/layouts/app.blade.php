@@ -99,7 +99,7 @@
 </head>
 <body>
     <!-- header fixed -->
-    <div class="wrap_header fixed-header2 trans-0-4">
+    <div class="wrap_header fixed-header2 trans-0-4" id="wrap_header">
         <!-- Logo -->
         <a href="index.html" class="logo">
             <img src="{{asset('images/logo/logo.jpg')}}" alt="IMG-LOGO" style="max-height: 63px;">
@@ -207,16 +207,16 @@
 
                     <div class="header-cart-buttons">
                         <div class="header-cart-wrapbtn">
-                            <a href="cart.html" class="flex-c-m size1 bg1 bo-rad-20 hov1 s-text1 trans-0-4">
-                                cart.blade
+                            <a href="{{route('cart')}}" class="flex-c-m size1 bg1 bo-rad-20 hov1 s-text1 trans-0-4">
+                                Корзина
                             </a>
                         </div>
 
-                        <div class="header-cart-wrapbtn">
-                            <a href="#" class="flex-c-m size1 bg1 bo-rad-20 hov1 s-text1 trans-0-4">
-                                Оплатить
-                            </a>
-                        </div>
+                        {{--<div class="header-cart-wrapbtn">--}}
+                            {{--<a href="#" class="flex-c-m size1 bg1 bo-rad-20 hov1 s-text1 trans-0-4">--}}
+                                {{--Оплатить--}}
+                            {{--</a>--}}
+                        {{--</div>--}}
                     </div>
                 </div>
                 @else
@@ -331,16 +331,16 @@
 
                             <div class="header-cart-buttons">
                                 <div class="header-cart-wrapbtn">
-                                    <a href="cart.html" class="flex-c-m size1 bg1 bo-rad-20 hov1 s-text1 trans-0-4">
-                                        cart.blade
+                                    <a href="{{route('cart')}}" class="flex-c-m size2 bg1 bo-rad-20 hov1 s-text1 trans-0-4">
+                                        Корзина
                                     </a>
                                 </div>
 
-                                <div class="header-cart-wrapbtn">
-                                    <a href="#" class="flex-c-m size1 bg1 bo-rad-20 hov1 s-text1 trans-0-4">
-                                        Оплатить
-                                    </a>
-                                </div>
+                                {{--<div class="header-cart-wrapbtn">--}}
+                                    {{--<a href="#" class="flex-c-m size1 bg1 bo-rad-20 hov1 s-text1 trans-0-4">--}}
+                                        {{--Оплатить--}}
+                                    {{--</a>--}}
+                                {{--</div>--}}
                             </div>
                         </div>
                         @else
@@ -462,16 +462,16 @@
 
                             <div class="header-cart-buttons">
                                 <div class="header-cart-wrapbtn">
-                                    <a href="cart.html" class="flex-c-m size1 bg1 bo-rad-20 hov1 s-text1 trans-0-4">
-                                        cart.blade
+                                    <a href="{{route('cart')}}" class="flex-c-m size1 bg1 bo-rad-20 hov1 s-text1 trans-0-4">
+                                        Корзина
                                     </a>
                                 </div>
 
-                                <div class="header-cart-wrapbtn">
-                                    <a href="#" class="flex-c-m size1 bg1 bo-rad-20 hov1 s-text1 trans-0-4">
-                                        Оплатить
-                                    </a>
-                                </div>
+                                {{--<div class="header-cart-wrapbtn">--}}
+                                    {{--<a href="#" class="flex-c-m size1 bg1 bo-rad-20 hov1 s-text1 trans-0-4">--}}
+                                        {{--Оплатить--}}
+                                    {{--</a>--}}
+                                {{--</div>--}}
                             </div>
                         </div>
                         @else
@@ -631,9 +631,9 @@
             $.ajax({
                 type: "GET",
                 // local
-                // url: "http://myvs.local/belook/public/addToCart/" + good_id,
+                url: "http://belook.local/addToCart/" + good_id,
                 // prod
-                url: "https://belook.kz/addToCart/" + good_id,
+                // url: "https://belook.kz/addToCart/" + good_id,
             });
         }
     </script>
@@ -642,7 +642,10 @@
             alert("delete cart");
             $.ajax({
                 type: "GET",
-                url: "https://belook.kz/deleteCart/" + cart_id,
+                //local
+                url: "http://belook.local/deleteCart/" + cart_id,
+                // prod
+                // url: "https://belook.kz/deleteCart/" + cart_id,
             });   
         }
     </script>    

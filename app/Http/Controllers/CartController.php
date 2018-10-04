@@ -7,8 +7,20 @@ use Auth;
 use App\Cart;
 use App\Good;
 
-class CartController extends Controller
-{
+class CartController extends Controller{
+
+    public function show(){
+        $user = Auth::user();
+        if(!Auth::guest() && $user->role == "buyer"){
+
+            $cartItems = Cart::where('buyer_id', $user->id)->get();
+
+            return view('cart', compact('cartItems'));
+
+        }else{
+            return redirect('/');
+        }
+    }
 	public function add($good_id){
 
 		if(!Auth::guest()){

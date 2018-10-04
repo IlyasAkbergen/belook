@@ -19,7 +19,4 @@ Vue.component('excel', require('./components/Excel.vue'));
 
 const app = new Vue({
     el: '#excelUploadVueApp'
-    // data: {
-    // 	loading: false
-    // }
 });
